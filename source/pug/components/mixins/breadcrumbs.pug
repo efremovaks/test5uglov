@@ -1,0 +1,14 @@
+mixin breadcrumbs(data, classMod)
+  .container
+    .breadcrumbs(class= classMod && 'breadcrumbs--' + classMod)
+      ul.breadcrumbs__list
+        if (data.length < 1)
+          li.breadcrumbs__item
+            a.breadcrumbs__link(href='main.html') Главная
+        else
+          each item, index in data
+            li.breadcrumbs__item
+              if index !== 0
+                span.breadcrumbs__divider &nbsp;/
+                =' '
+              a.breadcrumbs__link(href=item.href ? item.href : null)= item.text

@@ -2,26 +2,43 @@ mixin header(headerMods, currentUrl)
   -
     const headerLinks = [
       {
-        href: "index.html",
-        text: "Главная"
+        href: "#",
+        text: "Каталог"
       },
       {
         href: "#",
-        text: "Страница 2"
+        text: "О компании"
       },
       {
         href: "#",
-        text: "Страница 3"
+        text: "Магазины"
       },
+    ]
+
+    const headerItems = [
+      {
+        icon: "search",
+        width: 20,
+        height: 20,
+        href: "#"
+      },
+      {
+        icon: "user",
+        width: 20,
+        height: 20,
+        href: "#"
+      },
+      {
+        icon: "like",
+        width: 20,
+        height: 20,
+        href: "#"
+      }
     ]
 
   header.header(class=headerMods)
     .container
-      if(currentUrl === "index.html")
-        //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
-      else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
+
       nav.main-nav
         button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
           +icon("icon-burger", 20, 20)
@@ -34,3 +51,21 @@ mixin header(headerMods, currentUrl)
                   span.main-nav__link.is-active=link.text
                 else
                   a.main-nav__link(href=link.href)=link.text
+
+          if(currentUrl === "index.html")
+            span.header__logo
+              +icon("Logo", 100, 22)
+          else
+            a.header__logo(href="index.html", aria-label="Переход на главную")
+              +icon("Logo", 100, 22)
+
+          .main-nav__items
+            ul.main-nav__icons
+              each item in headerItems
+                li.main-nav__icon
+                  a.main-nav__icon-link(href=item.href)
+                    +icon(item.icon, item.width, item.height)
+
+            .main-nav__cart
+              a.main-nav__cart-link(href="#")
+                +icon("cart", 20, 20)

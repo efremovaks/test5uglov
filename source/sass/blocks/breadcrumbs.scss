@@ -1,0 +1,45 @@
+.breadcrumbs {
+  margin-top: 50px;
+  margin-bottom: 40px;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    white-space: nowrap;
+  }
+
+  &__item {
+    color: $color-dim-gray;
+
+    &:last-child {
+      color: $color-default-black;
+      pointer-events: none;
+    }
+
+    &:hover {
+      color: $color-default-black;
+      transition: $trans-default color;
+    }
+
+    &:active {
+      color: $color-dim-gray;
+      transition: $trans-default color;
+    }
+  }
+
+  &__divider {
+    display: inline-block;
+    vertical-align: baseline;
+    margin: 0 6px;
+  }
+
+  &__link {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: inherit;
+  }
+}

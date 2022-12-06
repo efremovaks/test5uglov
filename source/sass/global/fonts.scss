@@ -9,13 +9,21 @@
 //     url("../fonts/rouble.woff") format("woff");
 // }
 
+
 @font-face {
   font-style: normal;
   font-weight: 400;
-  font-family: "";
+  font-family: "Helvetica";
 
   font-display: swap;
-  src:
-    url("../fonts/.woff2") format("woff2"),
-    url("../fonts/.woff") format("woff");
+  src: url("../fonts/Helvetica-Regular.woff2") format("woff2"), url("../fonts/Helvetica-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-style: normal;
+  font-weight: bold;
+  font-family: "Helvetica";
+
+  font-display: swap;
+  src: url("../fonts/Helvetica-Bold.woff2") format("woff2"), url("../fonts/Helvetica-Bold.woff") format("woff");
 }

@@ -9,10 +9,23 @@ block variables
   - const footerMods = ""
   - const currentUrl = "index.html" //- для остальных страниц пишем пустую строку или индекс активного headerLinks
 
+  -
+    const breadcrumbsData = [
+      {
+        text: "Главная",
+        href: "#"
+      },
+      {
+        text: "Оформление заказа",
+        href: "#"
+      }
+    ];
+
 block main
   main
     //- на странице запрещен "голый" код
     //- все блоки вставляются из папки pug/components/blocks
-    +intro()
+    +breadcrumbs(breadcrumbsData)
+    +order()
 
 block modals

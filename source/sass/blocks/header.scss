@@ -1,13 +1,7 @@
 .header {
   padding: 28px 0;
 
-  background-color: $color-neon-blue;
+  background-color: $color-default-white;
 
-  .container {
-    display: flex;
-  }
-
-  &__logo {
-    color: $color-default-white;
-  }
+  border-bottom: 1px solid $color-very-light-grey;
 }
