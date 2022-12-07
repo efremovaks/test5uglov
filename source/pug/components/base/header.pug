@@ -40,8 +40,6 @@ mixin header(headerMods, currentUrl)
     .container
 
       nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
         .main-nav__wrapper
           ul.main-nav__list
             each link in headerLinks
@@ -53,10 +51,10 @@ mixin header(headerMods, currentUrl)
                   a.main-nav__link(href=link.href)=link.text
 
           if(currentUrl === "index.html")
-            span.header__logo
+            span.main-nav__logo
               +icon("Logo", 100, 22)
           else
-            a.header__logo(href="index.html", aria-label="Переход на главную")
+            a.main-nav__logo(href="index.html", aria-label="Переход на главную")
               +icon("Logo", 100, 22)
 
           .main-nav__items
@@ -69,3 +67,9 @@ mixin header(headerMods, currentUrl)
             .main-nav__cart
               a.main-nav__cart-link(href="#")
                 +icon("cart", 20, 20)
+
+        button.main-nav__toggle(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
+          span.main-nav__burger
+            span.main-nav__burger-line.main-nav__burger-line--first
+            span.main-nav__burger-line.main-nav__burger-line--second
+            span.main-nav__burger-line.main-nav__burger-line--third

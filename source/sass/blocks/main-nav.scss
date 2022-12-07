@@ -1,12 +1,107 @@
 .main-nav {
+  @include vp-1023 {
+    display: flex;
+    position: relative;
+  }
+
+  &__logo {
+    display: block;
+  }
+
+  &.main-nav--open .main-nav__logo {
+    @include vp-1023 {
+      position: absolute;
+      top: 30px;
+      left: 0;
+    }
+  }
+
   &__toggle {
     display: none;
+
+    border: none;
+    outline: none;
+    position: relative;
+    padding: 0;
+    margin-left: 24px;
+
+    background-color: $color-transparent;
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+
+    @include vp-1023 {
+      display: block;
+    }
+  }
+
+  &.main-nav--open .main-nav__toggle {
+    margin-left: auto;
+  }
+
+  &__burger {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: block;
+    width: 30px;
+    height: 14px;
+  }
+
+  &__burger-line {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: $color-default-black;
+
+    transition: opacity $trans-default, transform $trans-default;
+  }
+
+  &__burger-line--first {
+    top: 0;
+    right: 0;
+  }
+
+  &__burger-line--second,
+  &__burger-line--third {
+    top: 5px;
+    right: 0;
+    width: 60%;
+  }
+
+  &.main-nav--open .main-nav__burger-line--first {
+    opacity: 0;
+  }
+
+  &.main-nav--open .main-nav__burger-line--second {
+    transform: rotate(45deg);
+  }
+
+  &.main-nav--open .main-nav__burger-line--third {
+    transform: rotate(-45deg);
   }
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+  }
+
+  &.main-nav--open .main-nav__wrapper {
+    @include vp-1023 {
+      position: absolute;
+      top: -28px;
+      width: 100%;
+      height: 100vh;
+      background-color: $color-default-white;
+
+      justify-content: flex-end;
+      flex-direction: column-reverse;
+      padding-top: 100px;
+    }
   }
 
   &__list,
@@ -16,6 +111,16 @@
     margin: 0;
 
     display: flex;
+
+    @include vp-1023 {
+      display: none;
+    }
+  }
+
+  &.main-nav--open .main-nav__list {
+    @include vp-1023 {
+      display: flex;
+    }
   }
 
   &__link {
@@ -23,20 +128,11 @@
     line-height: 18px;
     color: $color-default-black;
 
-    @mixin hover-focus {
-      @media (hover: hover) {
-        &:hover:not(.focus-visible) {
-          @content;
-        }
+    @media (hover: hover), screen and (min-width: 0\0) {
+      &:hover,
+      &:focus {
+        border-bottom: 1px solid $color-default-black;
       }
-
-      &.focus-visible:focus {
-        @content;
-      }
-    }
-
-    @include hover-focus {
-      opacity: 0.8;
     }
   }
 
@@ -52,6 +148,16 @@
     display: flex;
   }
 
+  &.main-nav--open .main-nav__items {
+    margin-bottom: 20px;
+  }
+
+  &.main-nav--open .main-nav__icons {
+    @include vp-1023 {
+      display: flex;
+    }
+  }
+
   &__icon {
     margin-right: 30px;
 
@@ -61,7 +167,6 @@
   }
 
   &__icon-link {
-
     svg {
       width: 20px;
       height: 20px;
@@ -90,6 +195,24 @@
     svg {
       width: 20px;
       height: 20px;
+    }
+  }
+
+  &__cart-link {
+    @mixin hover-focus {
+      @media (hover: hover) {
+        &:hover:not(.focus-visible) {
+          @content;
+        }
+      }
+
+      &.focus-visible:focus {
+        @content;
+      }
+    }
+
+    @include hover-focus {
+      opacity: 0.8;
     }
   }
 }

@@ -1,3 +1,73 @@
 mixin order()
+
+  -
+    const orderItems = [
+      {
+        img: {
+        path: "content",
+        name: "img-1",
+        format: "jpg",
+        width: 130,
+        height: 160,
+        alt: "Утепленная стеганная куртка женская Top Hills",
+      },
+        name: "Утепленная стеганная куртка женская Top Hills",
+        art: "512-05",
+        season: "Осень-зима",
+        size: {
+          xs: "XS",
+          s: "S",
+          m: "M",
+          l: "L",
+          xl: "XL"
+        }
+        //- color:
+      },
+      {
+        img: {
+        path: "content",
+        name: "img-2",
+        format: "jpg",
+        width: 130,
+        height: 160,
+        alt: "Вязанная шапка Zolla",
+      },
+        name: "Вязанная шапка Zolla",
+        art: "891-256",
+        season: "Демисезон",
+        size: {
+          xs: "XS",
+          s: "S",
+          m: "M",
+          l: "L",
+          xl: "XL"
+        }
+        //- color:
+      }
+    ]
   .order
     .container
+      .order__wrapper
+        .order__left
+          .order__header-wrap
+            h1.order__header Оформление заказа
+            p.order__acc Есть аккаунт?
+              a.order__acc-link Войти
+
+          .order__items
+            p.order__items-header #[span 3] товара на сумму #[span 25 000] ₽
+
+            .order__card-wrap
+              ul.order__card-list
+                each item in orderItems
+                  li.order__card
+                    .order__card-item
+                      .order__card-img
+                        +img(item.img.path, item.img.name, item.img.format, item.img.width, item.img.height, item.img.alt)
+                      .order__card-about
+                        p.order__card-name= item.name
+                        p.order__card-art Артикул #[span= item.art]
+                        p.order__card-season Сезон #[span= item.season]
+
+
+

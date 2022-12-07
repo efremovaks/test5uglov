@@ -1,7 +1,9 @@
 .header {
   padding: 28px 0;
-
   background-color: $color-default-white;
-
   border-bottom: 1px solid $color-very-light-grey;
+
+  @include vp-1023 {
+    border: none;
+  }
 }

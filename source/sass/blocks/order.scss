@@ -1,0 +1,45 @@
+.order {
+  &__header-wrap {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__header {
+    font-size: 40px;
+    line-height: 42px;
+    color: $color-default-black;
+    margin: 0;
+    margin-right: 20px;
+    padding: 0;
+  }
+
+  &__acc {
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-dim-gray;
+  }
+
+  &__acc-link {
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-default-black;
+    margin-left: 5px;
+    cursor: pointer;
+
+    @mixin hover-focus {
+      @media (hover: hover) {
+        &:hover:not(.focus-visible) {
+          @content;
+        }
+      }
+
+      &.focus-visible:focus {
+        @content;
+      }
+    }
+
+    @include hover-focus {
+      opacity: 0.8;
+    }
+  }
+}
