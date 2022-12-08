@@ -14,14 +14,48 @@ mixin order()
         name: "Утепленная стеганная куртка женская Top Hills",
         art: "512-05",
         season: "Осень-зима",
-        size: {
-          xs: "XS",
-          s: "S",
-          m: "M",
-          l: "L",
-          xl: "XL"
-        }
-        //- color:
+        size: [
+         {
+            s: "XS",
+            disabled: false,
+            checked: false,
+          },
+          {
+            s: "S",
+            disabled: false,
+            checked: false,
+          },
+          {
+            s: "M",
+            disabled: false,
+            checked: true,
+          },
+          {
+            s: "L",
+            disabled: false,
+            checked: false,
+          },
+          {
+            s: "XL",
+            disabled: false,
+            checked: false,
+          }
+        ],
+        input: "-jacket",
+        color: [
+          {
+            colorItem: "color-1",
+            checked: true,
+          },
+          {
+            colorItem: "color-2",
+            checked: false,
+          },
+          {
+            colorItem: "color-3",
+            checked: false,
+          },
+        ],
       },
       {
         img: {
@@ -35,14 +69,40 @@ mixin order()
         name: "Вязанная шапка Zolla",
         art: "891-256",
         season: "Демисезон",
-        size: {
-          xs: "XS",
-          s: "S",
-          m: "M",
-          l: "L",
-          xl: "XL"
-        }
-        //- color:
+        size: [
+         {
+            s: "XS",
+            disabled: false,
+            checked: false,
+          },
+          {
+            s: "S",
+            disabled: false,
+            checked: true,
+          },
+          {
+            s: "M",
+            disabled: false,
+            checked: false,
+          },
+          {
+            s: "L",
+            disabled: true,
+            checked: false,
+          },
+          {
+            s: "XL",
+            disabled: true,
+            checked: false,
+          }
+        ],
+        input: "-hat",
+          color: [
+          {
+            colorItem: "color-1",
+            checked: true,
+          },
+        ],
       }
     ]
   .order
@@ -56,8 +116,9 @@ mixin order()
 
           .order__items
             p.order__items-header #[span 3] товара на сумму #[span 25 000] ₽
-
             .order__card-wrap
+              .order__card-delete
+                p.order__card-delete-text Товар #[span.order__card-delete-name Наименование товара] был удален из корзины. #[span.order__card-delete-re Восстановить]
               ul.order__card-list
                 each item in orderItems
                   li.order__card
@@ -68,6 +129,14 @@ mixin order()
                         p.order__card-name= item.name
                         p.order__card-art Артикул #[span= item.art]
                         p.order__card-season Сезон #[span= item.season]
-
-
-
+                        form(action="#" method="get")
+                          .order__card-sizes
+                            each i in item.size
+                              .order__card-size-item
+                                input(type="radio", id= i.s+item.input, value= item.input, name= item.input, disabled= i.disabled, checked= i.checked).visually-hidden
+                                label(for= i.s+item.input)= i.s
+                        .order__card-colors
+                          each c in item.color
+                            .order__color-item
+                              input(type="radio", id= c.colorItem+item.input, value= item.input, name= item.input, checked= c.checked).visually-hidden
+                              label(for= c.colorItem+item.input)

@@ -2,6 +2,7 @@
   &__header-wrap {
     display: flex;
     align-items: baseline;
+    margin-bottom: 60px;
   }
 
   &__header {
@@ -40,6 +41,197 @@
 
     @include hover-focus {
       opacity: 0.8;
+    }
+  }
+
+  &__items-header {
+    font-size: 28px;
+    line-height: 30px;
+    color: $color-default-black;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+
+  &__card-wrap {
+    position: relative;
+  }
+
+  &__card-delete {
+    position: absolute;
+    top: 262px;
+    left: 0;
+    background-color: $color-white-smoke;
+    width: 100%;
+    padding-left: 25px;
+  }
+
+  &__card-delete-text {
+    font-size: 16px;
+    line-height: 21px;
+    color: $color-dim-gray;
+  }
+
+  &__card-delete-name {
+    font-weight: bold;
+  }
+
+  &__card-delete-re {
+    color: $color-default-black;
+    padding-left: 25px;
+  }
+
+  &__card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__card {
+    border-top: 1px solid $color-very-light-grey;
+    border-bottom: 1px solid $color-very-light-grey;
+    padding: 25px 0;
+
+    &:first-of-type {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__card-item {
+    display: flex;
+  }
+
+  &__card-img {
+    width: 130px;
+    height: 160px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__card-about {
+    margin-left: 25px;
+  }
+
+  &__card-name {
+    font-size: 20px;
+    line-height: 24px;
+    color: $color-default-black;
+    max-width: 210px;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  &__card-art,
+  &__card-season {
+    font-size: 12px;
+    line-height: 15px;
+    color: $color-dim-gray;
+    margin: 0;
+    margin-bottom: 10px;
+
+    span {
+      color: $color-default-black;
+    }
+  }
+
+  &__card-sizes {
+    display: flex;
+    margin-bottom: 10px;
+
+    label {
+      font-size: 12px;
+      line-height: 15px;
+      color: $color-default-black;
+      border: 0 solid transparent;
+      border-radius: 6px;
+      background-color: $color-white-smoke;
+      width: 30px;
+      height: 30px;
+      padding: 8px;
+      margin: 0 5px;
+      cursor: pointer;
+      transition: background-color $trans-default;
+
+      &:hover {
+        background-color: $color-very-light-grey;
+      }
+    }
+
+    input:checked + label {
+      background-color: $color-default-black;
+      color: $color-default-white;
+    }
+
+    input:disabled + label {
+      color: $color-very-light-grey;
+
+      &:hover {
+        background-color: $color-white-smoke;
+      }
+    }
+  }
+
+  &__card-colors {
+    display: flex;
+  }
+
+  &__color-item {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    border-radius: 50%;
+
+    input + label::before {
+      cursor: pointer;
+    }
+
+    input#color-1-jacket + label::before,
+    input#color-1-hat + label::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background-color: $color-charcoal;
+      border-radius: 50%;
+    }
+
+    input#color-2-jacket + label::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background-color: $color-cerulean;
+      border-radius: 50%;
+    }
+
+    input#color-3-jacket + label::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      background-color: $color-golden-brown;
+      border-radius: 50%;
+    }
+
+    input:checked + label::after {
+      position: absolute;
+      content: "";
+      top: -2px;
+      left: -2px;
+      background-color: transparent;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid $color-default-black;
     }
   }
 }

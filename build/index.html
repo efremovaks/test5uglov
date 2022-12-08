@@ -91,6 +91,9 @@
                 <div class="order__items">
                   <p class="order__items-header"><span>3</span> товара на сумму <span>25 000</span> ₽</p>
                   <div class="order__card-wrap">
+                    <div class="order__card-delete">
+                      <p class="order__card-delete-text">Товар <span class="order__card-delete-name">Наименование товара</span> был удален из корзины. <span class="order__card-delete-re">Восстановить</span></p>
+                    </div>
                     <ul class="order__card-list">
                       <li class="order__card">
                         <div class="order__card-item">
@@ -100,6 +103,44 @@
                             <p class="order__card-name">Утепленная стеганная куртка женская Top Hills</p>
                             <p class="order__card-art">Артикул <span>512-05</span></p>
                             <p class="order__card-season">Сезон <span>Осень-зима</span></p>
+                            <form action="#" method="get">
+                              <div class="order__card-sizes">
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="XS-jacket" value="-jacket" name="-jacket">
+                                  <label for="XS-jacket">XS</label>
+                                </div>
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="S-jacket" value="-jacket" name="-jacket">
+                                  <label for="S-jacket">S</label>
+                                </div>
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="M-jacket" value="-jacket" name="-jacket" checked>
+                                  <label for="M-jacket">M</label>
+                                </div>
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="L-jacket" value="-jacket" name="-jacket">
+                                  <label for="L-jacket">L</label>
+                                </div>
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="XL-jacket" value="-jacket" name="-jacket">
+                                  <label for="XL-jacket">XL</label>
+                                </div>
+                              </div>
+                            </form>
+                            <div class="order__card-colors">
+                              <div class="order__color-item">
+                                <input class="visually-hidden" type="radio" id="color-1-jacket" value="-jacket" name="-jacket" checked>
+                                <label for="color-1-jacket"></label>
+                              </div>
+                              <div class="order__color-item">
+                                <input class="visually-hidden" type="radio" id="color-2-jacket" value="-jacket" name="-jacket">
+                                <label for="color-2-jacket"></label>
+                              </div>
+                              <div class="order__color-item">
+                                <input class="visually-hidden" type="radio" id="color-3-jacket" value="-jacket" name="-jacket">
+                                <label for="color-3-jacket"></label>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </li>
@@ -111,6 +152,36 @@
                             <p class="order__card-name">Вязанная шапка Zolla</p>
                             <p class="order__card-art">Артикул <span>891-256</span></p>
                             <p class="order__card-season">Сезон <span>Демисезон</span></p>
+                            <form action="#" method="get">
+                              <div class="order__card-sizes">
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="XS-hat" value="-hat" name="-hat">
+                                  <label for="XS-hat">XS</label>
+                                </div>
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="S-hat" value="-hat" name="-hat" checked>
+                                  <label for="S-hat">S</label>
+                                </div>
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="M-hat" value="-hat" name="-hat">
+                                  <label for="M-hat">M</label>
+                                </div>
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="L-hat" value="-hat" name="-hat" disabled>
+                                  <label for="L-hat">L</label>
+                                </div>
+                                <div class="order__card-size-item">
+                                  <input class="visually-hidden" type="radio" id="XL-hat" value="-hat" name="-hat" disabled>
+                                  <label for="XL-hat">XL</label>
+                                </div>
+                              </div>
+                            </form>
+                            <div class="order__card-colors">
+                              <div class="order__color-item">
+                                <input class="visually-hidden" type="radio" id="color-1-hat" value="-hat" name="-hat" checked>
+                                <label for="color-1-hat"></label>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </li>
