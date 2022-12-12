@@ -1549,13 +1549,24 @@ button,
   left: 0;
   background-color: #f1f1f1;
   width: 100%;
-  padding-left: 25px;
+  padding: 0 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .order__card-delete-text {
   font-size: 16px;
   line-height: 21px;
   color: #6e6e6e;
+  margin: 0;
+  padding: 16px 0;
 }
 
 .order__card-delete-name {
@@ -1565,6 +1576,7 @@ button,
 .order__card-delete-re {
   color: #000000;
   padding-left: 25px;
+  cursor: pointer;
 }
 
 .order__card-list {
@@ -1577,6 +1589,12 @@ button,
   border-top: 1px solid #c8c8c8;
   border-bottom: 1px solid #c8c8c8;
   padding: 25px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 40% 60% -webkit-min-content;
+  -ms-grid-columns: 40% 60% min-content;
+  grid-template-columns: 40% 60% -webkit-min-content;
+  grid-template-columns: 40% 60% min-content;
 }
 
 .order__card:first-of-type {
@@ -1630,12 +1648,16 @@ button,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
   margin-bottom: 10px;
 }
 
-.order__card-sizes label {
+.order__card-size-item input + label {
   font-size: 12px;
   line-height: 15px;
+  text-transform: uppercase;
   color: #000000;
   border: 0 solid transparent;
   border-radius: 6px;
@@ -1650,20 +1672,24 @@ button,
   transition: background-color 0.3s ease;
 }
 
-.order__card-sizes label:hover {
+.order__card-size-item input + label:first-of-type {
+  margin-left: 0;
+}
+
+.order__card-size-item input + label:hover {
   background-color: #c8c8c8;
 }
 
-.order__card-sizes input:checked + label {
+.order__card-size-item input:checked + label {
   background-color: #000000;
   color: #ffffff;
 }
 
-.order__card-sizes input:disabled + label {
+.order__card-size-item input:disabled + label {
   color: #c8c8c8;
 }
 
-.order__card-sizes input:disabled + label:hover {
+.order__card-size-item input:disabled + label:hover {
   background-color: #f1f1f1;
 }
 
@@ -1671,6 +1697,9 @@ button,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .order__color-item {
@@ -1729,6 +1758,155 @@ button,
   height: 20px;
   border-radius: 50%;
   border: 1px solid #000000;
+}
+
+.order__card-count-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: 50px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.order__card-price-old,
+.order__card-price-old-sum {
+  font-size: 12px;
+  line-height: 15px;
+  color: #6e6e6e;
+  -webkit-text-decoration-line: line-through;
+  text-decoration-line: line-through;
+  margin: 0;
+}
+
+.order__card-price-now,
+.order__card-price-now-sum {
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0;
+  margin-top: 7px;
+}
+
+.order__card-count-btn {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+  grid-template-columns: repeat(3, 1fr);
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-width: 155px;
+  width: 100%;
+  max-height: 50px;
+  height: 100%;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin: 0 30px;
+}
+
+.order__card-count-btn input {
+  max-width: 50px;
+  outline: none;
+  border: none;
+  text-align: center;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: bold;
+  color: #000000;
+  background-color: #f1f1f1;
+}
+
+.order__card-count-btn button {
+  border: none;
+  outline: none;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 0;
+}
+
+.order__card-count-btn button:hover {
+  background-color: #6e6e6e;
+}
+
+.order__card-count-btn button::after {
+  position: absolute;
+  content: "";
+  width: 12px;
+  height: 2px;
+  background-color: #000000;
+  top: 50%;
+  left: 44%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.order__card-count-btn button#plus::before {
+  position: absolute;
+  content: "";
+  width: 12px;
+  height: 2px;
+  background-color: #000000;
+  top: 25px;
+  left: 16px;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.btn-close {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  width: 13px;
+  height: 13px;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
+  -webkit-transition: opacity 0.3s ease;
+  -o-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.btn-close::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.btn-close::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.btn-close:hover {
+  opacity: 0.8;
+}
+
+.btn-close:active {
+  opacity: 1;
 }
 
 /* @mixin hover-focus {

@@ -56,6 +56,9 @@ mixin order()
             checked: false,
           },
         ],
+        price: "10 000 ₽",
+        oldPrice: "12 000 ₽",
+        priceValue: "2",
       },
       {
         img: {
@@ -103,40 +106,62 @@ mixin order()
             checked: true,
           },
         ],
+        price: "500 ₽",
+        oldPrice: false,
+        priceValue: "1",
       }
     ]
   .order
     .container
       .order__wrapper
-        .order__left
-          .order__header-wrap
-            h1.order__header Оформление заказа
-            p.order__acc Есть аккаунт?
-              a.order__acc-link Войти
+        form(action="#" method="get")
+          .order__left
+            .order__header-wrap
+              h1.order__header Оформление заказа
+              p.order__acc Есть аккаунт?
+                a.order__acc-link Войти
 
-          .order__items
-            p.order__items-header #[span 3] товара на сумму #[span 25 000] ₽
-            .order__card-wrap
-              .order__card-delete
-                p.order__card-delete-text Товар #[span.order__card-delete-name Наименование товара] был удален из корзины. #[span.order__card-delete-re Восстановить]
-              ul.order__card-list
-                each item in orderItems
-                  li.order__card
-                    .order__card-item
-                      .order__card-img
-                        +img(item.img.path, item.img.name, item.img.format, item.img.width, item.img.height, item.img.alt)
-                      .order__card-about
-                        p.order__card-name= item.name
-                        p.order__card-art Артикул #[span= item.art]
-                        p.order__card-season Сезон #[span= item.season]
-                        form(action="#" method="get")
-                          .order__card-sizes
+            .order__items
+              p.order__items-header #[span 3] товара на сумму #[span 25 000] ₽
+              .order__card-wrap
+                .order__card-delete
+                  p.order__card-delete-text Товар #[span.order__card-delete-name Наименование товара] был удален из корзины. #[span.order__card-delete-re Восстановить]
+                  +btn-close(button).order__card-delete-btn
+                ul.order__card-list
+                  each item in orderItems
+                    li.order__card
+                      .order__card-item
+                        .order__card-img
+                          +img(item.img.path, item.img.name, item.img.format, item.img.width, item.img.height, item.img.alt)
+                        .order__card-about
+                          p.order__card-name= item.name
+                          p.order__card-art Артикул #[span= item.art]
+                          p.order__card-season Сезон #[span= item.season]
+                          ul.order__card-sizes
                             each i in item.size
-                              .order__card-size-item
+                              li.order__card-size-item
                                 input(type="radio", id= i.s+item.input, value= item.input, name= item.input, disabled= i.disabled, checked= i.checked).visually-hidden
                                 label(for= i.s+item.input)= i.s
-                        .order__card-colors
-                          each c in item.color
-                            .order__color-item
-                              input(type="radio", id= c.colorItem+item.input, value= item.input, name= item.input, checked= c.checked).visually-hidden
-                              label(for= c.colorItem+item.input)
+                          ul.order__card-colors
+                            each c in item.color
+                              li.order__color-item
+                                input(type="radio", id= c.colorItem+item.input, value= item.input, name= item.input + "-color", checked= c.checked).visually-hidden
+                                label(for= c.colorItem+item.input)
+
+                      .order__card-count-wrap
+                        .order__card-price
+                          if item.oldPrice
+                            p.order__card-price-old= item.oldPrice
+                            p.order__card-price-now= item.price
+                          else
+                            p.order__card-price-now= item.price
+                        .order__card-count-btn
+                          button(type="button", id="minus", aria-label="уменьшить")
+                          .order__card-count-num
+                            label(for="card-count-btn")
+                            input(name="card-count-btn" type="number" id="col" value= item.priceValue min="0")
+                          button(type="button", id="plus", aria-label="добавить")
+                        .order__card-price-all
+                          p.order__card-price-old-sum
+                          p.order__card-price-now-sum 1000
+                      +btn-close(button)

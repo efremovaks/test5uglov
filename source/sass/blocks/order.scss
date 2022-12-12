@@ -62,13 +62,19 @@
     left: 0;
     background-color: $color-white-smoke;
     width: 100%;
-    padding-left: 25px;
+    padding: 0 25px;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
   }
 
   &__card-delete-text {
     font-size: 16px;
     line-height: 21px;
     color: $color-dim-gray;
+    margin: 0;
+    padding: 16px 0;
   }
 
   &__card-delete-name {
@@ -78,6 +84,7 @@
   &__card-delete-re {
     color: $color-default-black;
     padding-left: 25px;
+    cursor: pointer;
   }
 
   &__card-list {
@@ -90,6 +97,9 @@
     border-top: 1px solid $color-very-light-grey;
     border-bottom: 1px solid $color-very-light-grey;
     padding: 25px 0;
+
+    display: grid;
+    grid-template-columns: 40% 60% min-content;
 
     &:first-of-type {
       margin-bottom: 100px;
@@ -138,11 +148,18 @@
 
   &__card-sizes {
     display: flex;
-    margin-bottom: 10px;
 
-    label {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  &__card-size-item {
+    input + label {
       font-size: 12px;
       line-height: 15px;
+      text-transform: uppercase;
       color: $color-default-black;
       border: 0 solid transparent;
       border-radius: 6px;
@@ -153,6 +170,10 @@
       margin: 0 5px;
       cursor: pointer;
       transition: background-color $trans-default;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
 
       &:hover {
         background-color: $color-very-light-grey;
@@ -175,6 +196,10 @@
 
   &__card-colors {
     display: flex;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
   &__color-item {
@@ -232,6 +257,94 @@
       height: 20px;
       border-radius: 50%;
       border: 1px solid $color-default-black;
+    }
+  }
+
+  &__card-count-wrap {
+    display: flex;
+    max-height: 50px;
+    align-items: center;
+  }
+
+  &__card-price-old,
+  &__card-price-old-sum {
+    font-size: 12px;
+    line-height: 15px;
+    color: $color-dim-gray;
+    text-decoration-line: line-through;
+    margin: 0;
+  }
+
+  &__card-price-now,
+  &__card-price-now-sum {
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: bold;
+    color: $color-default-black;
+    margin: 0;
+    margin-top: 7px;
+  }
+
+  &__card-count-btn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    max-width: 155px;
+    width: 100%;
+    max-height: 50px;
+    height: 100%;
+    background-color: $color-white-smoke;
+    border-radius: 5px;
+    margin: 0 30px;
+
+    input {
+      max-width: 50px;
+      outline: none;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+      line-height: 21px;
+      font-weight: bold;
+      color: $color-default-black;
+      background-color: $color-white-smoke;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      position: relative;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      padding: 0;
+
+      &:hover {
+        background-color: $color-dim-gray;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 12px;
+        height: 2px;
+        background-color: $color-default-black;
+        top: 50%;
+        left: 44%;
+        transform: translateX(-50%);
+        // transform: translateY(-50%);
+      }
+    }
+
+    button#plus::before {
+      position: absolute;
+      content: "";
+      width: 12px;
+      height: 2px;
+      background-color: $color-default-black;
+      top: 25px;
+      left: 16px;
+      transform: rotate(90deg);
     }
   }
 }

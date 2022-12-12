@@ -1,0 +1,42 @@
+.btn-close {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    width: 13px;
+    height: 13px;
+    background-color: $color-transparent;
+    cursor: pointer;
+    transition: opacity $trans-default;
+
+    &::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-default-black;
+        transform: rotate(45deg);
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: $color-default-black;
+        transform: rotate(-45deg);
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    &:active {
+        opacity: 1;
+    }
+}
