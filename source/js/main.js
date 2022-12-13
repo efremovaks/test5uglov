@@ -4,6 +4,7 @@ import {Form} from './modules/form-validate/form';
 import {CustomSelect} from './modules/select/custom-select';
 
 import {initMainNav} from './modules/init-menu';
+import {initCardCountBtn} from './modules/init-card-count-btn';
 
 // ---------------------------------
 
@@ -27,6 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
     window.form = form;
     form.init();
     initMainNav();
+    initCardCountBtn();
   });
 });
 

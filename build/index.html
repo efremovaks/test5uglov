@@ -82,9 +82,9 @@
         </div>
         <div class="order">
           <div class="container">
-            <div class="order__wrapper">
-              <form action="#" method="get">
-                <div class="order__left">
+            <form action="#" method="get">
+              <div class="order__wrapper">
+                <fieldset class="order__left">
                   <div class="order__header-wrap">
                     <h1 class="order__header">Оформление заказа</h1>
                     <p class="order__acc">Есть аккаунт?<a class="order__acc-link">Войти</a></p>
@@ -149,16 +149,17 @@
                               <p class="order__card-price-now">10 000 ₽</p>
                             </div>
                             <div class="order__card-count-btn">
-                              <button type="button" id="minus" aria-label="уменьшить"></button>
+                              <button class="order__card-count-btn-minus disabled" type="button" id="minus" aria-label="уменьшить"></button>
                               <div class="order__card-count-num">
                                 <label for="card-count-btn"></label>
                                 <input name="card-count-btn" type="number" id="col" value="2" min="0">
                               </div>
-                              <button type="button" id="plus" aria-label="добавить"></button>
+                              <button class="order__card-count-btn-plus" type="button" id="plus" aria-label="добавить"></button>
                             </div>
-                            <div class="order__card-price-all">
-                              <p class="order__card-price-old-sum"></p>
-                              <p class="order__card-price-now-sum">1000</p>
+                            <div class="order__card-price-all"></div>
+                            <div class="order__card-price">
+                              <p class="order__card-price-old-sum">20 000 ₽</p>
+                              <p class="order__card-price-now-sum">20 000 ₽</p>
                             </div>
                           </div>
                           <button class="btn-close" type="button" aria="Удалить"></button>
@@ -206,16 +207,16 @@
                               <p class="order__card-price-now">500 ₽</p>
                             </div>
                             <div class="order__card-count-btn">
-                              <button type="button" id="minus" aria-label="уменьшить"></button>
+                              <button class="order__card-count-btn-minus disabled" type="button" id="minus" aria-label="уменьшить"></button>
                               <div class="order__card-count-num">
                                 <label for="card-count-btn"></label>
                                 <input name="card-count-btn" type="number" id="col" value="1" min="0">
                               </div>
-                              <button type="button" id="plus" aria-label="добавить"></button>
+                              <button class="order__card-count-btn-plus" type="button" id="plus" aria-label="добавить"></button>
                             </div>
-                            <div class="order__card-price-all">
-                              <p class="order__card-price-old-sum"></p>
-                              <p class="order__card-price-now-sum">1000</p>
+                            <div class="order__card-price-all"></div>
+                            <div class="order__card-price">
+                              <p class="order__card-price-now-sum">500 ₽</p>
                             </div>
                           </div>
                           <button class="btn-close" type="button" aria="Удалить"></button>
@@ -223,9 +224,31 @@
                       </ul>
                     </div>
                   </div>
-                </div>
-              </form>
-            </div>
+                </fieldset>
+                <fieldset class="order__right">
+                  <div class="order__right-wrap">
+                    <div class="order__total">
+                      <p class="order__products">Товары <span>24 500</span> ₽</p>
+                      <p class="order__sale">Скидка <span>-4 500</span> ₽</p>
+                      <p class="order__stocks">Акции <span>-4 000</span> ₽</p>
+                      <p class="order__promo">Промокод <span>- 500</span> ₽</p>
+                      <p class="order__delivery">Доставка <span>200</span> ₽</p>
+                    </div>
+                    <div class="order__storage">
+                      <p class="order__storage-text">Получить товар со склада <span>Сроки получения могут измениться</span></p>
+                      <div class="order__storage-toggle">
+                        <input class="visually-hidden" type="checkbox" id="storage-toggle">
+                        <label for="storage-toggle"></label>
+                      </div>
+                    </div>
+                    <div class="order__sum">
+                      <p class="order__sum-text">Итого: <span>20 700</span> ₽</p>
+                    </div>
+                    <button class="btn order__btn-go" type="submit">Оформить заказ</button>
+                  </div>
+                </fieldset>
+              </div>
+            </form>
           </div>
         </div>
       </main>
