@@ -126,7 +126,7 @@ mixin order()
                 a.order__acc-link Войти
 
             .order__items
-              p.order__items-header #[span 3] товара на сумму #[span 25 000] ₽
+              h2.order__items-header #[span 3] товара на сумму #[span 25 000] ₽
               .order__card-wrap
                 .order__card-delete
                   p.order__card-delete-text Товар #[span.order__card-delete-name Наименование товара] был удален из корзины. #[span.order__card-delete-re Восстановить]
@@ -192,7 +192,26 @@ mixin order()
 
               .order__sum
                 p.order__sum-text Итого: #[span 20 700] ₽
-
+              +custom-input({inputName: "promo-code", inputPlaceholder: "Введите промокод"}).order__promo-input
               +btn({text: "Оформить заказ", type: "submit"}).order__btn-go
+              p.order__privacy Нажимая кнопку “Оформить заказ”, Вы соглашаетесь с&ensp;
+                a(href="#") политикой конфиденциальности.
+
+          fieldset.order__bottom
+            .order__bottom-wrap
+              h2.order__bottom-header Контактные данные
+              .order__bottom-contacts
+                +custom-input({inputName: "contacts-name", inputPlaceholder: "Имя"})
+                +custom-input({inputName: "contacts-surname", inputPlaceholder: "Фамилия"})
+
+                +custom-input({inputName: "contacts-phone", inputPlaceholder: "Телефон"})
+                +custom-input({inputName: "contacts-Email", inputPlaceholder: "Email"})
+
+                +custom-input({inputName: "contacts-address", inputPlaceholder: "Адрес доставки"})
+
+
+
+
+
 
 

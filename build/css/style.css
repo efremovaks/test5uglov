@@ -622,13 +622,13 @@ button,
 
 .container {
   width: 100%;
-  max-width: 2000px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 0 200px;
 }
 
 .header {
-  padding: 28px 0;
+  padding: 22px 0;
   background-color: #ffffff;
   border-bottom: 1px solid #c8c8c8;
 }
@@ -926,8 +926,8 @@ button,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 530px;
-  padding: 14px 0 28px;
+  width: 100%;
+  padding: 20px 0;
 }
 
 .custom-input label,
@@ -948,30 +948,38 @@ button,
   -webkit-box-flex: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  max-width: 300px;
-  min-height: 48px;
-  margin-left: auto;
-  padding: 10px;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
+  min-height: 50px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  border: 1px solid #c8c8c8;
   outline: none;
   -webkit-transition: border 0.3s ease;
   -o-transition: border 0.3s ease;
   transition: border 0.3s ease;
 }
 
-.custom-input label input:hover,
-.custom-input label textarea:hover,
-.custom-textarea label input:hover,
-.custom-textarea label textarea:hover {
-  border: 2px solid rgba(0, 0, 0, 0.5);
+.custom-input label input placeholder,
+.custom-input label textarea placeholder,
+.custom-textarea label input placeholder,
+.custom-textarea label textarea placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #6e6e6e;
 }
 
+.custom-input label input:hover,
 .custom-input label input:focus,
+.custom-input label textarea:hover,
 .custom-input label textarea:focus,
+.custom-textarea label input:hover,
 .custom-textarea label input:focus,
+.custom-textarea label textarea:hover,
 .custom-textarea label textarea:focus {
-  border: 2px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid #444444;
 }
 
 .custom-input__error,
@@ -1006,14 +1014,14 @@ button,
 
 .custom-input.is-valid input,
 .custom-textarea.is-valid input {
-  border: 2px solid #22b259;
+  border: 1px solid #c8c8c8;
 }
 
 .custom-input.is-valid input:focus,
 .custom-input.is-valid input:hover,
 .custom-textarea.is-valid input:focus,
 .custom-textarea.is-valid input:hover {
-  border: 2px solid rgba(34, 178, 89, 0.5);
+  border: 1px solid #c8c8c8;
 }
 
 .custom-input .input-message,
@@ -1490,9 +1498,8 @@ button,
 .order__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 70% 30%;
-  grid-template-columns: 70% 30%;
-  gap: 40px;
+  -ms-grid-columns: 64% 36%;
+  grid-template-columns: 64% 36%;
   width: 100%;
 }
 
@@ -1878,13 +1885,15 @@ button,
 }
 
 .order__right {
-  border: 1px solid #6e6e6e;
+  border: 0;
   padding: 0;
+  padding-left: 40px;
 }
 
 .order__right-wrap {
   width: 100%;
   padding: 30px;
+  border: 1px solid #6e6e6e;
 }
 
 .order__products,
@@ -2013,7 +2022,8 @@ button,
   font-size: 28px;
   line-height: 30px;
   font-weight: bold;
-  margin: 20px 0;
+  margin: 0;
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2032,6 +2042,27 @@ button,
   font-size: 16px;
   line-height: 21px;
   text-align: center;
+}
+
+.order__privacy {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: center;
+  color: #6e6e6e;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.order__privacy a {
+  text-decoration: underline;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.order__privacy a:hover {
+  opacity: 0.8;
 }
 
 .btn-close {

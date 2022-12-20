@@ -90,7 +90,7 @@
                     <p class="order__acc">Есть аккаунт?<a class="order__acc-link">Войти</a></p>
                   </div>
                   <div class="order__items">
-                    <p class="order__items-header"><span>3</span> товара на сумму <span>25 000</span> ₽</p>
+                    <h2 class="order__items-header"><span>3</span> товара на сумму <span>25 000</span> ₽</h2>
                     <div class="order__card-wrap">
                       <div class="order__card-delete">
                         <p class="order__card-delete-text">Товар <span class="order__card-delete-name">Наименование товара</span> был удален из корзины. <span class="order__card-delete-re">Восстановить</span></p>
@@ -244,7 +244,45 @@
                     <div class="order__sum">
                       <p class="order__sum-text">Итого: <span>20 700</span> ₽</p>
                     </div>
+                    <div class="custom-input order__promo-input">
+                      <label>
+                        <input type="text" name="promo-code" placeholder="Введите промокод">
+                      </label>
+                    </div>
                     <button class="btn order__btn-go" type="submit">Оформить заказ</button>
+                    <p class="order__privacy">Нажимая кнопку “Оформить заказ”, Вы соглашаетесь с&ensp;<a href="#">политикой конфиденциальности.</a></p>
+                  </div>
+                </fieldset>
+                <fieldset class="order__bottom">
+                  <div class="order__bottom-wrap">
+                    <h2 class="order__bottom-header">Контактные данные</h2>
+                    <div class="order__bottom-contacts">
+                      <div class="custom-input">
+                        <label>
+                          <input type="text" name="contacts-name" placeholder="Имя">
+                        </label>
+                      </div>
+                      <div class="custom-input">
+                        <label>
+                          <input type="text" name="contacts-surname" placeholder="Фамилия">
+                        </label>
+                      </div>
+                      <div class="custom-input">
+                        <label>
+                          <input type="text" name="contacts-phone" placeholder="Телефон">
+                        </label>
+                      </div>
+                      <div class="custom-input">
+                        <label>
+                          <input type="text" name="contacts-Email" placeholder="Email">
+                        </label>
+                      </div>
+                      <div class="custom-input">
+                        <label>
+                          <input type="text" name="contacts-address" placeholder="Адрес доставки">
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </fieldset>
               </div>
